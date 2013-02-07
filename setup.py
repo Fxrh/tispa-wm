@@ -44,7 +44,7 @@ setup(
     packages=find_packages(),
     scripts=[
         "bin/qsh",
-        "bin/qtile",
-        "bin/qtile-session"
+        "bin/tispa",
+        "bin/tispa-session"
     ],
 )
