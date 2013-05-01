@@ -1,8 +1,10 @@
 from libqtile.config import Key, Screen, Group
 from libqtile.command import lazy
 from libqtile import layout, bar, widget
+from libqtile.layout.tispa import TispaLayout
 
 keys = [
+    Key(["shift", "mod1"], "q",  lazy.shutdown()),
     # Switch between windows in current stack pane
     Key(
         ["mod1"], "k",
@@ -55,13 +57,6 @@ keys = [
 
 groups = [
     Group("a"),
-    Group("s"),
-    Group("d"),
-    Group("f"),
-    Group("u"),
-    Group("i"),
-    Group("o"),
-    Group("p"),
 ]
 for i in groups:
     # mod1 + letter of group = switch to group
@@ -77,23 +72,12 @@ for i in groups:
 dgroups_key_binder = None
 
 layouts = [
+    TispaLayout(),
     layout.Max(),
     layout.Stack(stacks=2)
 ]
 
 screens = [
-    Screen(
-        bottom = bar.Bar(
-                    [
-                        widget.GroupBox(),
-                        widget.WindowName(),
-                        widget.TextBox("default config", name="default"),
-                        widget.Systray(),
-                        widget.Clock('%Y-%m-%d %a %I:%M %p'),
-                    ],
-                    30,
-                ),
-    ),
 ]
 
 main = None
