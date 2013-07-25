@@ -66,9 +66,17 @@ class Controller(dbus.service.Object):
     
     @dbus.service.method('de.trollhoehle.tispa')
     def killTop(self):
-        self.manager.currentLayout.killTop()
+        return self.manager.currentLayout.killTop()
        
-    @dbus.service.method('de.trollhoehle.tispa')
+    @dbus.service.method(dbus_interface='de.trollhoehle.tispa', in_signature='i')
     def setReplace(self,num):
-        self.manager.currentLayout.setToReplace(num)
+        return self.manager.currentLayout.setToReplace(num)
+        
+    @dbus.service.method(dbus_interface='de.trollhoehle.tispa', in_signature='i')
+    def toFullscreen(self, num):
+        return self.manager.currentLayout.toFullscreen(num)
+        
+    @dbus.service.method('de.trollhoehle.tispa')
+    def endFullscreen(self):
+        return self.manager.currentLayout.endFullscreen()
         
