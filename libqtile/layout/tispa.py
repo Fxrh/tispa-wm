@@ -79,4 +79,9 @@ class TispaLayout(Layout):
         self.fullscreen = -1
         self.group.layoutAll(True)
         return "Ok"
+    
+    def setColsRows(self, cols, rows):
+        self.rows=rows
+        self.columns=cols
+        self.group.layoutAll(True)
 

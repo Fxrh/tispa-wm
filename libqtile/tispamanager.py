@@ -79,4 +79,8 @@ class Controller(dbus.service.Object):
     @dbus.service.method('de.trollhoehle.tispa')
     def endFullscreen(self):
         return self.manager.currentLayout.endFullscreen()
+    
+    @dbus.service.method(dbus_interface='de.trollhoehle.tispa', in_signature='ii')
+    def setColsRows(self, cols, rows):
+        return self.manager.currentLayout.setColsRows(cols,rows)
         
